@@ -11,7 +11,7 @@ public class PaddleMovement : MonoBehaviour
     public Rigidbody2D rightRigidBody;
     public Rigidbody2D ballRigidBody;
     private bool isRightPaddle;
-    private bool isRightAI = true;
+    private bool isRightAI;
     private bool isLeftAI;
     void Start()
     {
