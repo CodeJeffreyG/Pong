@@ -5,18 +5,18 @@ public class Ball : MonoBehaviour
 
     public Rigidbody2D rigidBody;
     public float startingSpeed;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         bool isRight = Random.value >= 0.5f;
-        float xVelocity = -1;
-        float yVelocity = Random.Range(-1, 1);
-        if (isRight)
+        float xVelocity = -1f;
+        float yVelocity = Random.Range(-1f, 1f);
+        if (isRight == true)
         {
-            xVelocity = 1;
+            xVelocity = 1f;
         }
 
-        rigidBody.linearVelocity = new Vector2(xVelocity, yVelocity);
+        rigidBody.linearVelocity = new Vector2(xVelocity * startingSpeed, yVelocity * startingSpeed);
+        print(rigidBody.linearVelocity);
     }
 
     // Update is called once per frame
