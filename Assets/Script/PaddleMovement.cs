@@ -36,10 +36,6 @@ public class PaddleMovement : MonoBehaviour
             {
                 transform.Translate(Vector2.down * Time.deltaTime * movementSpeed);
             }
-
-
-
-
         }
         else
         {

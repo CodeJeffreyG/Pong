@@ -5,7 +5,24 @@ public class Ball : MonoBehaviour
 
     public Rigidbody2D rigidBody;
     public float startingSpeed;
+    private bool ballStart = false;
     void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (!ballStart && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow)))
+        {
+            ballStart = true;
+            shootBall();
+        }
+
+    }
+
+    void shootBall()
     {
         bool isRight = Random.value >= 0.5f;
         float xVelocity = -1f;
@@ -18,10 +35,6 @@ public class Ball : MonoBehaviour
         rigidBody.linearVelocity = new Vector2(xVelocity * startingSpeed, yVelocity * startingSpeed);
         print(rigidBody.linearVelocity);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
+
+
