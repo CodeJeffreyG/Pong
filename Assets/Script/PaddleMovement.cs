@@ -34,7 +34,14 @@ public class PaddleMovement : MonoBehaviour
         }
         else
         {
-
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                transform.Translate(Vector2.up * Time.deltaTime * paddleSpeed);
+            }
+            else if (Input.GetKey(KeyCode.DownArrow))
+            {
+                transform.Translate(Vector2.down * Time.deltaTime * paddleSpeed);
+            }
         }
     }
 }
