@@ -2,18 +2,19 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    public SpriteRenderer sprite;
 
     public Transform transformLeftPaddle;
     public Transform transformRightPaddle;
     public Rigidbody2D rigidBody;
     public float startingSpeed;
+    public float incrementSpeed = 1.1f;
     private bool ballStart = false;
 
     void Start()
     {
-        // Ensure the ball starts stationary
         rigidBody.linearVelocity = Vector2.zero;
-        rigidBody.position = Vector2.zero; // Start at the center of the screen
+        rigidBody.position = Vector2.zero;
     }
 
     void Update()
@@ -39,7 +40,7 @@ public class Ball : MonoBehaviour
 
         rigidBody.linearVelocity = direction * startingSpeed;
 
-        Debug.Log("Ball velocity: " + rigidBody.linearVelocity);
+        ;
     }
 
     void resetPosition()
@@ -52,13 +53,34 @@ public class Ball : MonoBehaviour
 
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        // Check if the ball entered a Goal trigger
-        if (collider.CompareTag("Goal"))
+        if (collision.rigidbody != null)
         {
-            Debug.Log("Goal scored!");
-            resetPosition();
+            if (collision.gameObject.CompareTag("PaddleRight"))
+            {
+                increaseSpeed();
+                Debug.Log("Hit the right paddle!");
+                sprite.color = Color.red;
+            }
+            else if (collision.gameObject.CompareTag("PaddleLeft"))
+            {
+                increaseSpeed();
+                Debug.Log("Hit the left paddle!");
+                sprite.color = Color.blue;
+            }
         }
     }
+
+    void increaseSpeed()
+    {
+        rigidBody.linearVelocity *= incrementSpeed;
+    }
 }
+
+
+
+
+
+
+
