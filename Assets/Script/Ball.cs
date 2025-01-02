@@ -7,14 +7,15 @@ public class Ball : MonoBehaviour
     public Transform transformLeftPaddle;
     public Transform transformRightPaddle;
     public Rigidbody2D rigidBody;
+    public float incrementSpeed;
     public float startingSpeed;
-    public float incrementSpeed = 1.1f;
     private bool ballStart = false;
 
     void Start()
     {
+        // Ensure the ball starts stationary
         rigidBody.linearVelocity = Vector2.zero;
-        rigidBody.position = Vector2.zero;
+        rigidBody.position = Vector2.zero; // Start at the center of the screen
     }
 
     void Update()
@@ -53,6 +54,20 @@ public class Ball : MonoBehaviour
 
     }
 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Goal"))
+        {
+            Debug.Log("Goal scored!");
+            resetPosition();
+        }
+
+
+
+
+
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.rigidbody != null)
@@ -77,8 +92,6 @@ public class Ball : MonoBehaviour
         rigidBody.linearVelocity *= incrementSpeed;
     }
 }
-
-
 
 
 
