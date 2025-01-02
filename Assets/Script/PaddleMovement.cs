@@ -11,7 +11,7 @@ public class PaddleMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        isRightPaddle = transform.localPosition.x > 0;
+        isRightPaddle = transform.localPosition.x < 0;
 
     }
 
