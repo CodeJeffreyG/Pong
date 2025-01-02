@@ -47,6 +47,7 @@ public class Ball : MonoBehaviour
     void resetPosition()
     {
         ballStart = false;
+        sprite.color = Color.white;
         rigidBody.linearVelocity = Vector2.zero;
         rigidBody.position = Vector2.zero;
         transformLeftPaddle.position = new Vector2(transformLeftPaddle.position.x, 0);
