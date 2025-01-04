@@ -75,17 +75,17 @@ public class PaddleMovement : MonoBehaviour
 
     void runAI(Rigidbody2D rigidBody)
     {
-        float currenetPosition = rigidBody.position.y;
+        float currentPosition = rigidBody.position.y;
 
-        if (currenetPosition > findBallYPosition())
+        if (currentPosition > findBallYPosition())
         {
             rigidBody.linearVelocity = new Vector2(0, -movementSpeed);
         }
-        else if (currenetPosition < findBallYPosition())
+        else if (currentPosition < findBallYPosition())
         {
             rigidBody.linearVelocity = new Vector2(0, movementSpeed);
         }
-        else if (currenetPosition == findBallYPosition())
+        else if (currentPosition == findBallYPosition())
         {
             return;
         }

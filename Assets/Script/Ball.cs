@@ -91,7 +91,6 @@ public class Ball : MonoBehaviour
     void increaseSpeed()
     {
         rigidBody.linearVelocity *= incrementSpeed;
-        Debug.Log("Speed increased by " + incrementSpeed + " current speed is " + rigidBody.linearVelocity);
     }
 }
 

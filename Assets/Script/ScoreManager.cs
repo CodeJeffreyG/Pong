@@ -1,5 +1,5 @@
-using System;
 using UnityEngine;
+using System;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -9,15 +9,15 @@ public class ScoreManager : MonoBehaviour
 
     public void calculateScore(String tag)
     {
-        if (tag == "RightGoal")
+        if (tag == "LeftGoal")
         {
-            Debug.Log("Right goal entered, left score: " + getLeftScore());
-            leftScore += 1;
+            rightScore++;
+            Debug.Log("Right player scored! Right score: " + rightScore);
         }
-        else if (tag == "LeftGoal")
+        else if (tag == "RightGoal")
         {
-            Debug.Log("Left goal entered, right score: " + getRightScore());
-            rightScore += 1;
+            leftScore++;
+            Debug.Log("Left player scored! Left score: " + leftScore);
         }
 
 
@@ -32,8 +32,5 @@ public class ScoreManager : MonoBehaviour
     {
         return rightScore;
     }
-
-
-
 
 }
