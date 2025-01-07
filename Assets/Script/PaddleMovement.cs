@@ -7,12 +7,9 @@ public class PaddleMovement : MonoBehaviour
 
     public Transform transform;
     public Rigidbody2D rigidBody;
-    public Rigidbody2D leftRigidBody;
-    public Rigidbody2D rightRigidBody;
-    public Rigidbody2D ballRigidBody;
+
     private bool isRightPaddle;
-    private bool isRightAI;
-    private bool isLeftAI;
+
     void Start()
     {
         isRightPaddle = transform.localPosition.x < 0;
@@ -26,69 +23,41 @@ public class PaddleMovement : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.W))
             {
-                isRightAI = true;
-                runAI(rightRigidBody);
-                isLeftAI = false;
+                Move(true);
 
-                transform.Translate(Vector2.up * Time.deltaTime * movementSpeed);
             }
             else if (Input.GetKey(KeyCode.S))
             {
-                transform.Translate(Vector2.down * Time.deltaTime * movementSpeed);
+                Move(false);
             }
         }
         else
         {
             if (Input.GetKey(KeyCode.UpArrow))
             {
-                isLeftAI = true;
-                runAI(leftRigidBody);
-                isRightAI = false;
-                transform.Translate(Vector2.up * Time.deltaTime * movementSpeed);
+                Move(true);
             }
             else if (Input.GetKey(KeyCode.DownArrow))
             {
-                transform.Translate(Vector2.down * Time.deltaTime * movementSpeed);
+                Move(false);
             }
 
         }
-
-        if (isLeftAI)
-        {
-            runAI(leftRigidBody);
-        }
-
-        if (isRightAI)
-        {
-            runAI(rightRigidBody);
-        }
-
-
-
     }
 
 
-    float findBallYPosition()
+    public void Move(bool isUp)
     {
-        return ballRigidBody.position.y;
+        Vector2 yDirection = isUp ? Vector2.up : Vector2.down;
+
+        transform.Translate(yDirection * Time.deltaTime * movementSpeed);
     }
 
-    void runAI(Rigidbody2D rigidBody)
-    {
-        float currentPosition = rigidBody.position.y;
 
-        if (currentPosition > findBallYPosition())
-        {
-            rigidBody.linearVelocity = new Vector2(0, -movementSpeed);
-        }
-        else if (currentPosition < findBallYPosition())
-        {
-            rigidBody.linearVelocity = new Vector2(0, movementSpeed);
-        }
-        else if (currentPosition == findBallYPosition())
-        {
-            return;
-        }
-    }
+
 }
+
+
+
+
 

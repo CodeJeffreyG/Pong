@@ -458,6 +458,7 @@ GameObject:
   - component: {fileID: 502875602}
   - component: {fileID: 502875601}
   - component: {fileID: 502875603}
+  - component: {fileID: 502875604}
   m_Layer: 0
   m_Name: RightGoal
   m_TagString: Goal
@@ -539,6 +540,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+--- !u!114 &502875604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502875600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b5982f5a5dfe8a48bd8a30f9743289f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -905,6 +918,7 @@ GameObject:
   - component: {fileID: 1208904384}
   - component: {fileID: 1208904383}
   - component: {fileID: 1208904385}
+  - component: {fileID: 1208904386}
   m_Layer: 0
   m_Name: LeftGoal
   m_TagString: Goal
@@ -986,6 +1000,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+--- !u!114 &1208904386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208904382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b5982f5a5dfe8a48bd8a30f9743289f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1628413372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1092,6 +1118,7 @@ MonoBehaviour:
   transformLeftPaddle: {fileID: 2144965944}
   transformRightPaddle: {fileID: 97316388}
   rigidBody: {fileID: 1628413376}
+  incrementSpeed: 1.1
   startingSpeed: 10
 --- !u!50 &1628413376
 Rigidbody2D:
